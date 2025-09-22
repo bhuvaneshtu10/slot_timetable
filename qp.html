@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OSCIA — Part B & C Questions</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7dd3fc;
+      --radius:12px; font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{
+      margin:0; padding:32px; background:linear-gradient(180deg,#071022 0%, #071229 100%); color:#e6eef6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:980px;margin:0 auto;display:grid;gap:18px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    h1{font-size:1.5rem;margin:0}
+    .meta{color:var(--muted);font-size:0.9rem}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+         padding:20px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(3,7,18,0.6);}
+    section h2{margin:0 0 8px 0;font-size:1.05rem;color:var(--accent)}
+    ol.topics{padding-left:1.1rem;margin:0}
+    ol.topics li{margin:14px 0;line-height:1.5;color:#dbe9f5}
+    pre.code{
+      background:#021026;color:#cfeffd;padding:12px;border-radius:8px;overflow:auto;margin:8px 0;font-size:0.92rem;
+    }
+    .note{color:var(--muted);font-size:0.9rem;margin-top:8px}
+    footer{color:var(--muted);font-size:0.85rem;text-align:center;margin-top:6px}
+    @media (max-width:640px){
+      body{padding:18px}
+      h1{font-size:1.2rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>OSCIA — PART B & C (Selected Questions)</h1>
+        <div class="meta">Converted from provided PDF. (Questions for practicals / short answers)</div>
+      </div>
+      <div class="meta">Prepared for quick revision</div>
+    </header>
+
+    <div class="card">
+      <section>
+        <h2>1. Linux Networking Commands — Troubleshooting</h2>
+        <ol class="topics">
+          <li>Utilize Linux networking commands to troubleshoot network connectivity issues (examples: <code>ping</code>, <code>ifconfig</code>/<code>ip</code>, <code>traceroute</code>, <code>netstat</code>/<code>ss</code>, <code>route</code>, <code>tcpdump</code>).</li>
+          <li>Show sample command usages and common interpretations (packet loss, latency, route hops, listening ports).</li>
+        </ol>
+        <div class="note">Tip: Combine commands (e.g., <code>sudo tcpdump -i eth0 icmp</code>) to isolate problems quickly.</div>
+      </section>
+    </div>
+
+    <div class="card">
+      <section>
+        <h2>2. Shell Scripting — Nginx status check (if - else if ladder)</h2>
+        <p class="note">Write a shell script to check if the Nginx web server is running using ladder <em>if-else-if</em>.</p>
+        <pre class="code" aria-label="Example Nginx check script">
+#!/bin/bash
+# nginx-check.sh - Example using if-elif-else ladder
+
+if systemctl is-active --quiet nginx; then
+  echo "Nginx is running."
+elif pgrep -x nginx >/dev/null 2>&1; then
+  echo "Nginx process found but service not active (maybe started manually)."
+else
+  echo "Nginx is not running."
+  # optional: start nginx
+  # sudo systemctl start nginx
+fi
+        </pre>
+      </section>
+    </div>
+
+    <div class="card">
+      <section>
+        <h2>3. Page Replacement Algorithms (FIFO, LRU, Optimal)</h2>
+        <p class="note">Apply FIFO, LRU, Optimal page replacement algorithms to compute page faults for the reference string below.</p>
+        <pre class="code">Reference string: 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9
+Frames: 5, 6
+(Compute page faults step-by-step for each algorithm)</pre>
+        <div class="note">Hint: Show table rows for each time step and mark page hits vs faults.</div>
+      </section>
+    </div>
+
+    <div class="card">
+      <section>
+        <h2>4. File Handling Utilities in Linux — Experiments</h2>
+        <ol class="topics">
+          <li>Use utilities like <code>cat</code>, <code>tac</code>, <code>head</code>, <code>tail</code>, <code>cut</code>, <code>paste</code>, <code>sort</code>, <code>uniq</code>, <code>wc</code>, <code>tr</code>, <code>sed</code>, and <code>awk</code>.</li>
+          <li>Provide examples: extracting columns, transforming case, counting lines, merging files, removing duplicates.</li>
+        </ol>
+      </section>
+    </div>
+
+    <div class="card">
+      <section>
+        <h2>5. Segmentation Memory Management</h2>
+        <ol class="topics">
+          <li>Explain segmentation with necessary diagram and example (logical segments: code, data, stack).</li>
+          <li>Show mapping from logical segment number + offset → physical memory using segment table.</li>
+        </ol>
+        <div class="note">Include drawing: segment table (base, limit) and sample address translation.</div>
+      </section>
+    </div>
+
+    <div class="card">
+      <section>
+        <h2>6. System Calls and Types</h2>
+        <ol class="topics">
+          <li>Explain system calls and their types with necessary examples: process control (fork, exec), file management (open, read, write), device management, information maintenance, communication (pipe, socket).</li>
+          <li>Give short code snippets or command-line demonstrations where applicable.</li>
+        </ol>
+      </section>
+    </div>
+
+    <footer>
+      Source: converted from your PDF. :contentReference[oaicite:1]{index=1}
+    </footer>
+  </div>
+</body>
+</html>
